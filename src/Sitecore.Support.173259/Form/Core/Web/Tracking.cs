@@ -19,7 +19,7 @@
           {
             clientEvent.Value = "<schidden></schidden>";
           }
-          AnalyticsTracker.TriggerEvent(clientEvent, true);
+          Sitecore.Support.Form.Core.Analytics.AnalyticsTracker.TriggerEvent(clientEvent, true);
         }
       }
       base.Response.End();

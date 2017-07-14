@@ -7,7 +7,7 @@
   using Sitecore.Form.Core.Configuration;
   using Sitecore.Form.Core.Web;
 
-  public class  AnalyticsTracker
+  public class AnalyticsTracker
   {
     public static Sitecore.Data.ID SessionId
     {
@@ -116,7 +116,7 @@
 
     public static void TriggerEvent(ClientEvent data, bool triggerForPreviousPage = true)
     {
-      VisitorDataSet.PagesRow page = triggerForPreviousPage ? Tracker.CurrentVisit.PreviousPage : Tracker.CurrentVisit.CurrentPage;
+      VisitorDataSet.PagesRow page = (triggerForPreviousPage && Tracker.CurrentVisit.PreviousPage != null) ? Tracker.CurrentVisit.PreviousPage : Tracker.CurrentVisit.CurrentPage;
       AnalyticsTracker.TriggerEvent(data, page);
       if (triggerForPreviousPage)
       {
